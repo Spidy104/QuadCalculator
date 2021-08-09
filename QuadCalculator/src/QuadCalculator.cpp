@@ -61,8 +61,6 @@ int main(int argc, char* argv[]) {
 		cd c = parse(argv[4]);
 		cd disc = discriminat_compl(a, b, c);
 		cout << yell << "The discriminant is: " << to_string(disc) << defa << nl;
-		// TODO()
-		//cerr << red << "TODO(TO BE IMPLEMENTED)" << defa << nl;
 		auto complex_roots = compl_roots(disc, a, b);
 		printer.pprint(complex_roots);
 
