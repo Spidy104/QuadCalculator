@@ -1,13 +1,11 @@
 #include "PPrintter.h"
 #include <iostream>
-#include "Generals.h"
 #include "ColorMod.h"
 
 using namespace Color;
 
 Modifier blue(Code::FG_BLUE);
 Modifier def(Code::FG_DEFAULT);
-
 
 
 

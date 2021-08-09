@@ -2,6 +2,8 @@
 #include "Complex.h"
 
 
+constexpr auto nl = "\n";
+
 class PPrintter
 {
 public:

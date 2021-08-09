@@ -29,9 +29,6 @@
     <ClInclude Include="includes\ColorMod.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="includes\Generals.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="includes\PPrintter.h">
       <Filter>Header Files</Filter>
     </ClInclude>

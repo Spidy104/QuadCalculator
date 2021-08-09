@@ -1,7 +1,13 @@
 #include "../includes/ColorMod.h"
 #include "../includes/Complex.h"
-#include "../includes/Generals.h"
 #include "../includes/PPrintter.h"
+
+#include <vector>
+#include <string>
+#include <iostream>
+
+
+
 
 using namespace Color;
 using namespace std;
@@ -21,14 +27,33 @@ double discriminant(double a, double b, double c) {
 }
 
 
+void printHelpMessage() {
+	vector<string> helplines = {
+		"Input values are the Quadratic coefficients, a,b,c",
+		"For real values of a,b,c which have complex roots/real roots enter like: .'\'QuadCalculator.exe -r 1 2 3 ",
+		"For complex values of a,b,c just write .'\'QuadCalculator.exe -cc 1,2 3,4 5,6 here, u have to write the argand coordinates of a,b and c",
+		"One tip, if u wanna use square roots in the coefficients, use like 2sqrt3 if it's just sqrt of a number just use then 1sqrtnum"
+	};
+	for (const auto& elem : helplines) {
+		cout << elem << nl;
+	}
+
+}
+
 
 
 int main(int argc, char* argv[]) {
 
-	if (argc < 4) {
+	if (argc == 2 and (strcmp(argv[1], "-h") == 0)) {
+		cout << "Glad u asked it....." << nl;
+		printHelpMessage();
+		return 0;
+	}
+	if (argc < 4 && argc != 2) {
 		cerr << gr << "Invalid value, please enter again!!!" << defa << nl;
 		exit(-1);
 	}
+
 	auto type_of_calc = argv[1];
 	if (strcmp(type_of_calc, "-cc") == 0) {
 		cd a = parse(argv[2]);
