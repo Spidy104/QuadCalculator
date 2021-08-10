@@ -53,7 +53,6 @@ int main(int argc, char* argv[]) {
 		cerr << gr << "Invalid value, please enter again!!!" << defa << nl;
 		exit(-1);
 	}
-
 	auto type_of_calc = argv[1];
 	if (strcmp(type_of_calc, "-cc") == 0) {
 		cd a = parse(argv[2]);
