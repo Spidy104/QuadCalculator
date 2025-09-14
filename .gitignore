@@ -12,6 +12,9 @@
 # Mono auto generated files
 mono_crash.*
 
+.gitattributes
+
+
 # Build results
 [Dd]ebug*/
 [Rr]elease*/
@@ -29,9 +32,8 @@ cmake-build-*/
 # Visual Studio 2015/2017/2019/2022 cache/options
 .vs/
 
-
 # Visual Studio project/solution files (hide these too)
-*.sln
+QuadCalculator.sln
 *.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
@@ -84,6 +86,9 @@ __pycache__/
 # -------------------------
 # CLion / IntelliJ
 .idea/
+
+
+
 
 # VS Code
 .vscode/
