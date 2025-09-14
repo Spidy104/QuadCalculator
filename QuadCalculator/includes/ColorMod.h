@@ -18,7 +18,7 @@ namespace color {
         RESET      = 0
     };
 
-    // constexpr mapping table: pairs of Code -> ANSI sequence
+    // constexpr mapping table: pairs of Code -> ANSI sequences
     // This avoids a large switch and therefore avoids the clang-tidy warning.
     constexpr std::array<std::pair<Code, std::string_view>, 10> code_to_ansi_tbl{{
         { Code::FG_RED,     "\x1B[31m" },
@@ -35,7 +35,7 @@ namespace color {
 
     // Lookup function — constexpr-friendly and straightforward.
     // Returns RESET sequence for unknown codes (defensive).
-    constexpr std::string_view to_ansi(Code c) noexcept {
+    constexpr std::string_view to_ansi(const Code c) noexcept {
         for (const auto &p : code_to_ansi_tbl) {
             if (p.first == c) return p.second;
         }
