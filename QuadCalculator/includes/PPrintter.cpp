@@ -1,27 +1,40 @@
 #include "PPrintter.h"
 #include <iostream>
+#include <cmath>
 #include "ColorMod.h"
 
-using namespace Color;
+using color::Modifier;
+using color::Code;
 
-Modifier blue(Code::FG_BLUE);
-Modifier def(Code::FG_DEFAULT);
+PPrintter::PPrintter(std::ostream& os) noexcept
+	: os_(os)
+{}
 
+void PPrintter::print_complex(const cd& z) const noexcept {
+	const double r = z.real();
+	const double im = z.imag();
 
-
-void PPrintter::pprint(std::pair<cd, cd>& p1)
-{
-	cd root1 = p1.first;
-	cd root2 = p1.second;
-	std::cout << blue << "Root 1 : " << to_string(root1) << def << nl;
-	std::cout << blue << "Root 2 : " << to_string(root2) << def << nl;
+	os_ << std::fixed << std::setprecision(2) << '(' << r;
+	if (std::signbit(im)) {
+		os_ << " - " << std::abs(im) << "i)";
+	} else {
+		os_ << " + " << im << "i)";
+	}
 }
 
-void PPrintter::pprint(pd& p2)
-{
-	double root1 = p2.first;
-	double root2 = p2.second;
-	std::cout << blue << "Root 1 : " << root1 << def << nl;
-	std::cout << blue << "Root 2 : " << root2 << def << nl;
+void PPrintter::pprint(const std::pair<cd, cd>& p1) const noexcept {
+	constexpr Modifier blue{Code::FG_BLUE};
+	constexpr Modifier def{Code::FG_DEFAULT};
+
+	os_ << blue << "Root 1 : " << def << ' ' << to_string(p1.first) << nl;
+	os_ << blue << "Root 2 : " << def << ' ' << to_string(p1.second) << nl;
 }
 
+void PPrintter::pprint(const pd& p2) const noexcept {
+	constexpr Modifier blue{Code::FG_BLUE};
+	constexpr Modifier def{Code::FG_DEFAULT};
+
+	os_ << std::fixed << std::setprecision(2);
+	os_ << blue << "Root 1 : " << def << ' ' << '(' << p2.first  << ')' << nl;
+	os_ << blue << "Root 2 : " << def << ' ' << '(' << p2.second << ')' << nl;
+}
