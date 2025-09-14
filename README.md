@@ -294,5 +294,3 @@ MIT License—see the [LICENSE](LICENSE) file for details.
 * Built with ❤️ for students and engineers
 
 ---
-
-✨ **With this README, your QuadCalculator is now a clear guide and reference for both mathematics and code!**
