@@ -13,10 +13,10 @@ public:
 	// Construct with an output stream (defaults to std::cout)
 	explicit PPrintter(std::ostream& os = std::cout) noexcept;
 
-	// Print pair of complex roots (non-mutating)
+	// Print a pair of complex roots (non-mutating)
 	void pprint(const std::pair<cd, cd>& p1) const noexcept;
 
-	// Print pair of real roots (non-mutating)
+	// Print a pair of real roots (non-mutating)
 	void pprint(const pd& p2) const noexcept;
 
 private:
